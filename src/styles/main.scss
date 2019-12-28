@@ -1,8 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:600,800&display=swap');
-
-$main-font: 'Open Sans', Helvetica, Arial, sans-serif;
-$head-wt: 800;
-$body-wt: 600;
+@import './partials/variables';
 
 * {
   margin: 0;
@@ -12,7 +8,8 @@ $body-wt: 600;
 html {
   font-family: $main-font;
   font-weight: $body-wt;
-  color: #3e3e3e;
+  color: $foreground-color;
+  background-color: $background-color;
   margin: 0;
   body {
     margin: 0;

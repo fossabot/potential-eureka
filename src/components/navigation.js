@@ -13,7 +13,7 @@ class Navigation extends Component {
         <section></section>
         <section id='nav'>
           <NavItem name='Home' />
-          <NavItem name='About' />
+          <NavItem name='Projects' />
           <NavItem name='Contact' />
         </section>
       </nav>
