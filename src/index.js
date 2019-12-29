@@ -1,23 +1,17 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-import Navigation from './components/navigation';
+import { render } from 'react-dom';
+import App from './components/app';
 
 import './styles/main.scss';
 
-ReactDom.render(
-  <main>
-    <Navigation name='Dishant Mishra' />
-  </main>,
-  document.getElementById('root')
-);
+const rootId = document.getElementById('root');
+
+render(<App />, rootId);
+
+console.log(process.env.NODE_ENV);
 
 if (module.hot && process.env.NODE_ENV === 'development') {
   module.hot.accept('./components/navigation', () => {
-    ReactDOM.render(
-      <main>
-        <Navigation name='Dishant Mishra' />
-      </main>,
-      rootId
-    );
+    ReactDOM.render(<App />, rootId);
   });
 }
