@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 
+import { GitHub, Monitor, Archive } from 'react-feather';
+
+import '../styles/components/projects.scss';
+
 const projects = [
   {
     name: 'All The News',
@@ -21,7 +25,7 @@ const projects = [
     website: 'archived'
   },
   {
-    name: 'Project Dialog',
+    name: 'Project Dialogue',
     stack: ['Java', 'Java Swing FX'],
     description: `An encrypted SMPT server/client system written in Java. The 
       server is multi-threaded to facilitate multiple clients networking at
@@ -53,11 +57,10 @@ class Projects extends Component {
               title={project.name}
               description={project.description}
               repository={project.repository}
-              website={project.website}>
-              {project.stack.map((stackItem, index) => (
-                <StackItem key={index}>{stackItem}</StackItem>
-              ))}
-            </Project>
+              website={project.website}
+              stack={project.stack}
+              key={project.name}
+            />
           ))}
         </div>
       </section>
@@ -69,11 +72,17 @@ class Project extends Component {
   isArchived = content => {
     if (content === '') return '';
     else if (content === 'archived')
-      return <div className='archived'>Archived</div>;
+      return (
+        <a className='website archived' href='#projects'>
+          <Archive size={20} strokeWidth={2} />
+          <span>archived</span>
+        </a>
+      );
     else
       return (
-        <a href={content} target='_blank'>
-          Website
+        <a href={content} className='website' target='_blank'>
+          <Monitor size={20} strokeWidth={2} />
+          <span>website</span>
         </a>
       );
   };
@@ -81,13 +90,17 @@ class Project extends Component {
     return (
       <div className='project' id={this.props.id}>
         <div className='title'>{this.props.title}</div>
-        <div className='stack-wrapper'>{this.props.children}</div>
+        <Stack stack={this.props.stack} />
         <div className='description'>
           <p>{this.props.description}</p>
         </div>
         <div className='link-wrapper'>
-          <a href={this.props.repository} target='_blank'>
-            repository
+          <a
+            href={this.props.repository}
+            className='repository'
+            target='_blank'>
+            <GitHub strokeWidth={2} size={20} />
+            <span>repository</span>
           </a>
           {this.isArchived(this.props.website)}
         </div>
@@ -96,9 +109,25 @@ class Project extends Component {
   }
 }
 
+class Stack extends Component {
+  render() {
+    return (
+      <div className='stack'>
+        {this.props.stack.map((value, index) => (
+          <StackItem key={value} value={value} index={index} />
+        ))}
+      </div>
+    );
+  }
+}
+
 class StackItem extends Component {
   render() {
-    return <div className='stack-item'>{this.props.children}</div>;
+    return (
+      <div className='stack-item' index={this.props.index}>
+        {this.props.value}
+      </div>
+    );
   }
 }
 

@@ -1,0 +1,76 @@
+#about {
+  display: grid;
+  grid-template-rows: auto auto;
+  padding-top: 11rem;
+
+  .banner {
+    font-size: 3rem;
+    line-height: 1;
+    span {
+      font-weight: 700;
+      color: #ffffff;
+    }
+  }
+
+  .skills {
+    display: inline-flex;
+    margin-top: 1rem;
+
+    .skill {
+      padding: 0.7rem;
+      color: #ffffff;
+      background-color: #000000;
+      margin-right: 0.5rem;
+      font-size: 0.8rem;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      height: 1.8rem;
+      font-weight: 700;
+      border-radius: 0.5rem;
+    }
+  }
+
+  #other-contacts {
+    display: inline-flex;
+    margin-top: 1rem;
+    a {
+      color: #ffffff;
+      margin-right: 0.5rem;
+      display: grid;
+      grid-template-columns: auto auto;
+      column-gap: 0.5rem;
+      padding: 0.7rem 1rem 0.7rem 1rem;
+      span {
+        vertical-align: top;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      border-radius: 0.5rem;
+
+      &:nth-last-child(1) {
+        background-color: orangered;
+      }
+      &:nth-last-child(2) {
+        background-color: green;
+      }
+      &:nth-last-child(3) {
+        background-color: lightseagreen;
+      }
+
+      &:visited {
+        color: #ffffff;
+      }
+
+      &:hover {
+        filter: brightness(80%);
+      }
+    }
+  }
+
+  .center {
+    height: 100%;
+    top: 55%;
+    position: relative;
+    transform: translate(-60%, 1);
+  }
+}

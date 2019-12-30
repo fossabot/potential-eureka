@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 
 import Navigation from './navigation';
+import About from './about';
 import Projects from './projects';
-import Contact from './contact';
 
 const attr = {
   name: 'Dishant Mishra',
@@ -13,9 +13,9 @@ const attr = {
     '.NET Core',
     'JavaScript',
     'PHP',
-    'HTML / CSS',
     'Python',
     'Golang',
+    'HTML / CSS',
     'SQL',
     'MongoDB',
     'Neo4J',
@@ -36,13 +36,14 @@ class App extends Component {
       <main className='app'>
         <Navigation name={attr.name} />
         <div className='inner'>
-          <section></section>
-          <Projects />
-          <Contact
+          <About
+            name={attr.name}
+            skills={attr.skills}
             linkedin={attr.contacts.linkedin}
             github={attr.contacts.github}
             email={attr.contacts.email}
           />
+          <Projects />
         </div>
       </main>
     );
